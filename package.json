@@ -26,7 +26,8 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "redux": "^4.0.1",
-    "react-redux": "^6.0.0"
+    "react-redux": "^6.0.0",
+    "react-notification-system": "https://github.com/glebtv/react-notification-system"
   },
   "devDependencies": {
     "@svgr/rollup": "^2.4.1",
@@ -58,12 +59,12 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",
-    "rollup-plugin-url": "^1.4.0"
+    "rollup-plugin-url": "^1.4.0",
+    "react-notification-system": "https://github.com/glebtv/react-notification-system"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "react-notification-system": "https://github.com/glebtv/react-notification-system"
   }
 }

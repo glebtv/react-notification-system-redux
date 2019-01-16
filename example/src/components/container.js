@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
 
-import { ReactReduxContext } from 'react-redux'
+import { connect, ReactReduxContext } from 'react-redux'
 
 import Notifications, { success, error, warning, info, removeAll } from 'react-notification-system-redux';
 
@@ -50,7 +49,9 @@ class Container extends React.Component {
 	    <div>
         <button onClick={this.handleClick}>Spawn some notifications!!!</button>
         <button onClick={this.handleRemoveAll}>Remove all notifications</button>
-        <Notifications notifications={notifications} />
+        <ReactReduxContext.Provider value={this.context}>
+          <Notifications notifications={notifications} />
+        </ReactReduxContext.Provider>
       </div>
 		);
 	}
@@ -61,6 +62,8 @@ Container.contextType = ReactReduxContext
 Container.propTypes = {
   notifications: PropTypes.array
 };
+
+//export default Container
 
 export default connect(
   state => ({ notifications: state.notifications })

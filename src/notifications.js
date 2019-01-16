@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import * as actions from './actions'
-import reducer from './reducer'
+//import reducer from './reducer'
+import { connect, ReactReduxContext } from 'react-redux'
 
 import NotifySystem from 'react-notification-system'
 
-export default class Notifications extends React.Component {
+class Notifications extends React.Component {
   system() {
     return this.notify
   }
@@ -25,11 +26,13 @@ export default class Notifications extends React.Component {
         }
       })
 
+      var self = this
+
       notifications.forEach(notification => {
         this.system().addNotification({
           ...notification,
           onRemove: () => {
-            this.context.store.dispatch(actions.hide(notification.uid))
+            self.context.store.dispatch(actions.hide(notification.uid))
             notification.onRemove && notification.onRemove()
           }
         })
@@ -58,13 +61,13 @@ Notifications.propTypes = {
   notifications: PropTypes.array
 }
 
-Notifications.contextTypes = {
-  store: PropTypes.object
-}
+Notifications.contextType = ReactReduxContext
 
 // Tie actions to Notifications component instance
 Object.keys(actions).forEach(key => {
   Notifications[key] = actions[key];
 })
 
-Notifications.reducer = reducer
+//Notifications.reducer = reducer
+
+export default Notifications

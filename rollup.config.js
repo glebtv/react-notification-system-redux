@@ -8,6 +8,9 @@ import svgr from '@svgr/rollup'
 
 import pkg from './package.json'
 
+const externalDeps = Object.keys(pkg.dependencies || {})
+console.log(externalDeps)
+
 export default {
   input: 'src/index.js',
   output: [
@@ -22,6 +25,7 @@ export default {
       sourcemap: true
     }
   ],
+  external: externalDeps,
   plugins: [
     external(),
     postcss({
@@ -34,6 +38,11 @@ export default {
       plugins: [ 'external-helpers' ]
     }),
     resolve(),
-    commonjs()
+    commonjs({
+      include: 'node_modules/**',
+      namedExports: {
+        'node_modules/react-is/index.js': ['isValidElementType']
+      }
+    })
   ]
 }

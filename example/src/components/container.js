@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import ReactDOM from 'react-dom';
+
+import { ReactReduxContext } from 'react-redux'
 
 import Notifications, { success, error, warning, info, removeAll } from 'react-notification-system-redux';
 
@@ -18,7 +19,6 @@ const notificationOpts = {
 };
 
 class Container extends React.Component {
-
   constructor() {
     super();
 
@@ -56,9 +56,7 @@ class Container extends React.Component {
 	}
 }
 
-Container.contextTypes = {
-  store: PropTypes.object
-};
+Container.contextType = ReactReduxContext
 
 Container.propTypes = {
   notifications: PropTypes.array

@@ -5,7 +5,7 @@ import { ReactReduxContext } from 'react-redux';
 import * as actions from './actions';
 import reducer from './reducer';
 
-import NotifySystem from 'react-notification-system';
+import NotifySystem from 'rs-react-notification-system';
 
 class Notifications extends React.Component {
 
@@ -97,4 +97,7 @@ Object.keys(actions).forEach(key => {
 
 NotificationsWithContext.reducer = reducer;
 
-module.exports = NotificationsWithContext;
+export default NotificationsWithContext;
+
+export { reducer }
+export * from "./actions"

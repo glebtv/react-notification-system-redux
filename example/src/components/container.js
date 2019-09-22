@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import Notifications, { success, error, warning, info, removeAll } from '../../../src/notifications';
+import Notifications, { success, error, warning, info, removeAll } from 'react-notification-system-redux';
 
 const notificationOpts = {
   // uid: 'once-please', // you can specify your own uid if required

@@ -2,7 +2,7 @@
   "name": "react-notification-system-redux",
   "version": "2.1.0",
   "description": "react-notification-system-redux",
-  "main": "lib/react-notification-system-redux.min.js",
+  "main": "dist/react-notification-system-redux.min.js",
   "author": "Goran Udosic",
   "homepage": "https://github.com/glebtv/react-notification-system-redux",
   "repository": {
